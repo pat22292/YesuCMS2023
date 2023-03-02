@@ -25,6 +25,7 @@ Route::group(['namespace'=>'App\Http\Controllers'], function(){
     Route::get('suggest-list', 'TransactionController@suggestionList');
     Route::get('show-sections', 'SectionController@show');
     Route::get('show-menus', 'MenuController@show');
+    Route::post('edit-menu/{id}', 'MenuController@edit');
     Route::get('suggest-list-filterered/{word}', 'TransactionController@suggestionListFiltered');
 
     Route::group(['prefix'=>'oauth'], function($api) {

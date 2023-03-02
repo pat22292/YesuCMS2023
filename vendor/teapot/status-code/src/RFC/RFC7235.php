@@ -18,7 +18,7 @@
  * @copyright 2013-2016 B Hanlon. All rights reserved.
  * @license   MIT http://opensource.org/licenses/MIT
  *
- * @link https://shrikeh.github.com/teapot
+ * @link https://github.com/teapot-php/status-code
  */
 namespace Teapot\StatusCode\RFC;
 
@@ -42,7 +42,7 @@ use Teapot\StatusCode\RFC\Stream\IETF as IETFStream;
  * @copyright 2013-2016 B Hanlon. All rights reserved.
  * @license   MIT http://opensource.org/licenses/MIT
  *
- * @link https://shrikeh.github.com/teapot
+ * @link https://github.com/teapot-php/status-code
  */
 interface RFC7235 extends ProposedStandard, IETFStream
 {
@@ -62,10 +62,8 @@ interface RFC7235 extends ProposedStandard, IETFStream
      * enclosed representation to the user, since it usually contains relevant
      * diagnostic information.
      *
-     * @codingStandardsIgnoreStart
+     * @link https://datatracker.ietf.org/doc/html/rfc7235#section-3.1
      *
-     * @link https://svn.tools.ietf.org/svn/wg/httpbis/specs/rfc7235.html#status.401
-     * @codingStandardsIgnoreEnd
      * @var int
      */
     const UNAUTHORIZED = 401;
@@ -78,10 +76,8 @@ interface RFC7235 extends ProposedStandard, IETFStream
      * proxy for the target resource. The client may repeat the request with a
      * new or replaced Proxy-Authorization header field (Section 4.4).
      *
-     * @codingStandardsIgnoreStart
+     * @link https://datatracker.ietf.org/doc/html/rfc7235#section-3.2
      *
-     * @link https://svn.tools.ietf.org/svn/wg/httpbis/specs/rfc7235.html#status.407
-     * @codingStandardsIgnoreEnd
      * @var int
      */
     const PROXY_AUTHENTICATION_REQUIRED = 407;

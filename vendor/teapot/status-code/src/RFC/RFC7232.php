@@ -18,7 +18,7 @@
  * @copyright 2013-2016 B Hanlon. All rights reserved.
  * @license   MIT http://opensource.org/licenses/MIT
  *
- * @link https://shrikeh.github.com/teapot
+ * @link https://github.com/teapot-php/status-code
  */
 namespace Teapot\StatusCode\RFC;
 
@@ -42,7 +42,7 @@ use Teapot\StatusCode\RFC\Stream\IETF as IETFStream;
  * @copyright 2013-2016 B Hanlon. All rights reserved.
  * @license   MIT http://opensource.org/licenses/MIT
  *
- * @link https://shrikeh.github.com/teapot
+ * @link https://github.com/teapot-php/status-code
  */
 interface RFC7232 extends ProposedStandard, IETFStream
 {
@@ -78,10 +78,8 @@ interface RFC7232 extends ProposedStandard, IETFStream
      * A 304 response cannot contain a message-body; it is always terminated by
      * the first empty line after the header fields.
      *
-     * @codingStandardsIgnoreStart
+     * @link https://datatracker.ietf.org/doc/html/rfc7232#section-4.1
      *
-     * @link https://svn.tools.ietf.org/svn/wg/httpbis/specs/rfc7232.html#status.304
-     * @codingStandardsIgnoreEnd
      * @var int
      */
     const NOT_MODIFIED = 304;
@@ -94,10 +92,8 @@ interface RFC7232 extends ProposedStandard, IETFStream
      * and metadata) and, thus, prevent the request method from being applied if
      * the target resource is in an unexpected state.
      *
-     * @codingStandardsIgnoreStart
+     * @link https://datatracker.ietf.org/doc/html/rfc7232#section-4.2
      *
-     * @link https://svn.tools.ietf.org/svn/wg/httpbis/specs/rfc7232.html#status.412
-     * @codingStandardsIgnoreEnd
      * @var int
      */
     const PRECONDITION_FAILED = 412;

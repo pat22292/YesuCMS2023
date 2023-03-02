@@ -1,6 +1,6 @@
 # Teapot: Status Codes
 
-[![Integrate](https://github.com/teapot-php/status-code/workflows/Integrate/badge.svg?branch=master)](https://github.com/teapot-php/status-code/actions)
+[![Integrate](https://github.com/teapot-php/status-code/workflows/Integrate/badge.svg?branch=main)](https://github.com/teapot-php/status-code/actions)
 [![latest_stable_version_img]][latest_stable_version]
 [![latest_unstable_version_img]][latest_unstable_version]
 [![license_img]][license]
@@ -19,3 +19,7 @@ Part of the teapot library. This is a port of all of the status codes, so the ex
 
 [twitter_img]: https://img.shields.io/badge/twitter-%40shrikeh-blue.svg "@shrikeh on Twitter"
 [twitter]: https://twitter.com/shrikeh
+
+## Changelog
+
+Please have a look at [`CHANGELOG.md`](CHANGELOG.md).

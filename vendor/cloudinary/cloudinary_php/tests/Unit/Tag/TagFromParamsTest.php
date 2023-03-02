@@ -11,6 +11,7 @@
 namespace Cloudinary\Test\Unit\Tag;
 
 use Cloudinary\ArrayUtils;
+use Cloudinary\Asset\DeliveryType;
 use Cloudinary\Asset\Media;
 use Cloudinary\Configuration\Configuration;
 use Cloudinary\Tag\ImageTag;
@@ -31,7 +32,9 @@ final class TagFromParamsTest extends ImageTagTestCase
 
     const DEFAULT_PATH        = 'http://res.cloudinary.com/test123';
     const DEFAULT_UPLOAD_PATH = 'http://res.cloudinary.com/test123/image/upload/';
-    const VIDEO_UPLOAD_PATH   = 'http://res.cloudinary.com/test123/video/upload/';
+    const VIDEO_PATH   = 'http://res.cloudinary.com/test123/video/';
+    const VIDEO_UPLOAD_PATH   = self::VIDEO_PATH . 'upload/';
+    const VIDEO_FETCH_PATH   = self::VIDEO_PATH . 'fetch/';
 
     private static $publicId                = 'sample.jpg';
     private static $commonTransformationStr = 'e_sepia';
@@ -517,6 +520,21 @@ final class TagFromParamsTest extends ImageTagTestCase
         );
     }
 
+    public function testVideoTagFetch()
+    {
+        $videoUrl = self::FETCH_VIDEO_URL;
+        $prefixUrl = self::VIDEO_FETCH_PATH;
+
+        self::assertStrEquals(
+            "<video poster='{$prefixUrl}f_jpg/$videoUrl'>" .
+            "<source src='{$prefixUrl}f_webm/$videoUrl' type='video/webm'>" .
+            "<source src='{$prefixUrl}f_mp4/$videoUrl' type='video/mp4'>" .
+            "<source src='{$prefixUrl}f_ogv/$videoUrl' type='video/ogg'>" .
+            '</video>',
+            VideoTag::fromParams($videoUrl, [DeliveryType::KEY => DeliveryType::FETCH])
+        );
+    }
+
     public function testVideoTagWithAttributes()
     {
         //test video attributes
@@ -818,7 +836,7 @@ final class TagFromParamsTest extends ImageTagTestCase
                    "data-url='http[^']+\/v1_1\/test123\/auto\/upload' " .
                    "name='file' type='file'\/>/";
 
-        self::assertRegExp($pattern, (string)UploadTag::fromParams('image'));
+        self::assertMatchesRegularExpression($pattern, (string)UploadTag::fromParams('image'));
 
         $pattern = "/<input class='cloudinary-fileupload' " .
                    "data-cloudinary-field='image' " .
@@ -827,7 +845,7 @@ final class TagFromParamsTest extends ImageTagTestCase
                    "data-max-chunk-size='5000000' " .
                    "data-url='http[^']+\/v1_1\/test123\/auto\/upload' " .
                    "name='file' type='file'\/>/";
-        self::assertRegExp($pattern, (string)UploadTag::fromParams('image', ['chunk_size' => 5000000]));
+        self::assertMatchesRegularExpression($pattern, (string)UploadTag::fromParams('image', ['chunk_size' => 5000000]));
 
         $pattern = "/<input class='cloudinary-fileupload classy' " .
                    "data-cloudinary-field='image' " .
@@ -836,7 +854,7 @@ final class TagFromParamsTest extends ImageTagTestCase
                    "data-max-chunk-size='\d+' " .
                    "data-url='http[^']+\/v1_1\/test123\/auto\/upload' " .
                    "name='file' type='file'\/>/";
-        self::assertRegExp($pattern, (string)UploadTag::fromParams('image', ['html' => ['class' => 'classy']]));
+        self::assertMatchesRegularExpression($pattern, (string)UploadTag::fromParams('image', ['html' => ['class' => 'classy']]));
     }
 
     /**

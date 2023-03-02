@@ -18,7 +18,7 @@
  * @copyright 2013-2016 B Hanlon. All rights reserved.
  * @license   MIT http://opensource.org/licenses/MIT
  *
- * @link https://shrikeh.github.com/teapot
+ * @link https://github.com/teapot-php/status-code
  */
 namespace Teapot\StatusCode\Vendor;
 
@@ -39,7 +39,7 @@ namespace Teapot\StatusCode\Vendor;
  * @copyright 2013-2016 B Hanlon. All rights reserved.
  * @license   MIT http://opensource.org/licenses/MIT
  *
- * @link https://shrikeh.github.com/teapot
+ * @link https://github.com/teapot-php/status-code
  */
 interface Microsoft
 {
@@ -61,7 +61,7 @@ interface Microsoft
      * sends a "HTTP/1.1 449 Retry with valid parameters: param1, param2, . . ."
      * response. The applications may choose to learn, or not.
      *
-     * @link http://msdn.microsoft.com/en-us/library/dd891478.aspx
+     * @link https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-wdv/83ecf19f-e0f8-4706-aae5-ba618f52f100
      *
      * @var int
      */

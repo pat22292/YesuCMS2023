@@ -62,6 +62,7 @@ trait UploadTrait
             'folder',
             'format',
             'image_metadata',
+            'media_metadata',
             'invalidate',
             ModerationType::KEY,
             'notification_url',
@@ -79,6 +80,7 @@ trait UploadTrait
             'type',
             'unique_filename',
             'upload_preset',
+            'use_asset_folder_as_public_id_prefix',
             'use_filename',
             'use_filename_as_display_name',
         ];

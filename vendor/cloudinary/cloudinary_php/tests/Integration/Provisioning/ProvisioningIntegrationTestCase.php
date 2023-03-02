@@ -14,7 +14,7 @@ use Cloudinary\Api\Provisioning\AccountApi;
 use Cloudinary\Exception\ConfigurationException;
 use Cloudinary\Test\CloudinaryTestCase;
 use Exception;
-use PHPUnit_Framework_Constraint_IsType as IsType;
+use PHPUnit\Framework\Constraint\IsType;
 use RuntimeException;
 
 /**
@@ -156,7 +156,7 @@ abstract class ProvisioningIntegrationTestCase extends CloudinaryTestCase
         }
 
         if (isset($user['sub_account_ids'])) {
-            self::assertInternalType(IsType::TYPE_STRING, $user['sub_account_ids']);
+            self::assertIsString($user['sub_account_ids']);
         }
 
         foreach ($values as $key => $value) {
@@ -178,12 +178,10 @@ abstract class ProvisioningIntegrationTestCase extends CloudinaryTestCase
             [
                 'id' => IsType::TYPE_STRING,
                 'name' => IsType::TYPE_STRING,
-                'description' => [IsType::TYPE_STRING, IsType::TYPE_NULL],
                 'cloud_name' => IsType::TYPE_STRING,
                 'api_access_keys' => IsType::TYPE_ARRAY,
                 'enabled' => IsType::TYPE_BOOL,
-                'created_at' => IsType::TYPE_STRING,
-                'custom_attributes' => [IsType::TYPE_ARRAY, IsType::TYPE_NULL]
+                'created_at' => IsType::TYPE_STRING
             ]
         );
 

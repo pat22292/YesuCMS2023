@@ -28,7 +28,7 @@ use Cloudinary\Test\Integration\IntegrationTestCase;
 use DateInterval;
 use DateTime;
 use Exception;
-use PHPUnit_Framework_Constraint_IsType as IsType;
+use PHPUnit\Framework\Constraint\IsType;
 
 /**
  * Class MetadataFieldsTest
@@ -132,7 +132,7 @@ class MetadataFieldsTest extends IntegrationTestCase
      */
     private static function assertMetadataField($metadataField, $type = null, $values = [])
     {
-        self::assertInternalType(IsType::TYPE_STRING, $metadataField['external_id']);
+        self::assertIsString($metadataField['external_id']);
         if ($type) {
             self::assertEquals($type, $metadataField['type']);
         } else {
@@ -147,8 +147,8 @@ class MetadataFieldsTest extends IntegrationTestCase
                 ]
             );
         }
-        self::assertInternalType(IsType::TYPE_STRING, $metadataField['label']);
-        self::assertInternalType(IsType::TYPE_BOOL, $metadataField['mandatory']);
+        self::assertIsString($metadataField['label']);
+        self::assertIsBool($metadataField['mandatory']);
         self::assertArrayHasKey('default_value', (array)$metadataField);
         self::assertArrayHasKey('validation', (array)$metadataField);
         if (in_array($metadataField['type'], [MetadataFieldType::ENUM, MetadataFieldType::SET], true)) {
@@ -172,8 +172,8 @@ class MetadataFieldsTest extends IntegrationTestCase
         self::assertNotEmpty($dataSource);
         self::assertArrayHasKey('values', $dataSource);
         if (!empty($dataSource['values'])) {
-            self::assertInternalType(IsType::TYPE_STRING, $dataSource['values'][0]['value']);
-            self::assertInternalType(IsType::TYPE_STRING, $dataSource['values'][0]['external_id']);
+            self::assertIsString($dataSource['values'][0]['value']);
+            self::assertIsString($dataSource['values'][0]['external_id']);
             if (!empty($dataSource['values'][0]['state'])) {
                 self::assertContains($dataSource['values'][0]['state'], ['active', 'inactive']);
             }
@@ -243,6 +243,7 @@ class MetadataFieldsTest extends IntegrationTestCase
     {
         $setMetadataField = new SetMetadataField(self::$EXTERNAL_ID_SET, self::$DATASOURCE_MULTIPLE);
         $setMetadataField->setExternalId(self::$EXTERNAL_ID_SET);
+        $setMetadataField->setDefaultValue([self::$DATASOURCE_ENTRY_EXTERNAL_ID, 'v4']);
 
         $result = self::$adminApi->addMetadataField($setMetadataField);
 
@@ -252,7 +253,8 @@ class MetadataFieldsTest extends IntegrationTestCase
             [
                 'label' => self::$EXTERNAL_ID_SET,
                 'external_id' => self::$EXTERNAL_ID_SET,
-                'mandatory' => false
+                'mandatory' => false,
+                'default_value' => [self::$DATASOURCE_ENTRY_EXTERNAL_ID, 'v4']
             ]
         );
     }

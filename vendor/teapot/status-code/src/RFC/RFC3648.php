@@ -18,7 +18,7 @@
  * @copyright 2013-2016 B Hanlon. All rights reserved.
  * @license   MIT http://opensource.org/licenses/MIT
  *
- * @link https://shrikeh.github.com/teapot
+ * @link https://github.com/teapot-php/status-code
  */
 namespace Teapot\StatusCode\RFC;
 
@@ -42,7 +42,7 @@ use Teapot\StatusCode\RFC\Stream\IETF as IETFStream;
  * @copyright 2013-2016 B Hanlon. All rights reserved.
  * @license   MIT http://opensource.org/licenses/MIT
  *
- * @link https://shrikeh.github.com/teapot
+ * @link https://github.com/teapot-php/status-code
  */
 interface RFC3648 extends ProposedStandard, IETFStream
 {
@@ -57,10 +57,7 @@ interface RFC3648 extends ProposedStandard, IETFStream
      * present in "Web Distributed Authoring and Versioning (WebDAV) Ordered
      * Collections Protocol".
      *
-     * @codingStandardsIgnoreStart
-     *
-     * @link https://tools.ietf.org/html/draft-ietf-webdav-collection-protocol-04#section-7.2
-     * @codingStandardsIgnoreEnd
+     * @link https://datatracker.ietf.org/doc/html/draft-ietf-webdav-collection-protocol-04#section-425
      *
      * @var int
      */

@@ -15,6 +15,7 @@ use Cloudinary\Asset\AuthToken;
 use Cloudinary\Asset\Image;
 use Cloudinary\Configuration\Configuration;
 use Cloudinary\Configuration\UrlConfig;
+use Cloudinary\Exception\ConfigurationException;
 
 /**
  * Class DistributionTest
@@ -230,6 +231,21 @@ final class DistributionTest extends AssetTestCase
         self::assertImageUrl('s--RVsT3IpYGITMIc0RjCpde9T9Uujc2c1X--/' . self::IMAGE_NAME, $this->image);
     }
 
+    public function testSignatureNoApiSecret()
+    {
+        $this->image->cloud->apiSecret   = null;
+        $this->image->urlConfig->signUrl = true;
+
+        $expectedExceptionMessage = 'Must supply apiSecret';
+        try {
+            $this->image->toUrl();
+        } catch (ConfigurationException $e) {
+            $message = $e->getMessage();
+        }
+
+        self::assertStrEquals($expectedExceptionMessage, $message);
+    }
+
     public function testForceVersion()
     {
         self::assertImageUrl(
@@ -249,7 +265,7 @@ final class DistributionTest extends AssetTestCase
 
         $config->url->analytics();
 
-        self::assertContains(
+        self::assertStringContainsString(
             '?' . Analytics::QUERY_KEY . '=',
             (string)new Image(self::ASSET_ID, $config)
         );
@@ -261,7 +277,7 @@ final class DistributionTest extends AssetTestCase
 
         $config->url->analytics();
 
-        self::assertNotContains(
+        self::assertStringNotContainsString(
             '?' . Analytics::QUERY_KEY . '=',
             (string)new Image(self::FETCH_IMAGE_URL_WITH_QUERY, $config)
         );
@@ -276,12 +292,12 @@ final class DistributionTest extends AssetTestCase
 
         $config->url->signUrl()->analytics();
 
-        self::assertNotContains(
+        self::assertStringNotContainsString(
             '?' . Analytics::QUERY_KEY . '=',
             (string)new Image(self::ASSET_ID, $config)
         );
 
-        self::assertContains(
+        self::assertStringContainsString(
             AuthToken::AUTH_TOKEN_NAME,
             (string)new Image(self::ASSET_ID, $config)
         );
