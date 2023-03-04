@@ -1,0 +1,62 @@
+app = "Laravel"
+kill_signal = "SIGINT"
+kill_timeout = 5
+processes = []
+
+[build]
+  [build.args]
+    NODE_VERSION = "14"
+    PHP_VERSION = "8.1"
+
+[env]
+  APP_DEBUG = "true"
+  APP_ENV = "production"
+  APP_KEY = "base64:Ajii/MioM5t+uSCRdousxib0Xu0NLthVlr6QyXImsb0 = "
+  APP_NAME = "Laravel"
+  APP_URL = "http://localhost"
+  DB_CONNECTION = "pgsql"
+  DB_DATABASE = "railway"
+  DB_HOST = "containers-us-west-113.railway.app"
+  DB_PORT = "5925"
+  DB_USERNAME = "postgres"
+  DB_PASSWORD = "I2cvZlTP87xJOLbkQt55"
+  LOG_CHANNEL = "stderr"
+  LOG_DEPRECATIONS_CHANNEL = "null"
+  LOG_LEVEL = "info"
+  LOG_STDERR_FORMATTER = "Monolog\\Formatter\\JsonFormatter"
+  MAIL_DRIVER = "smtp"
+  MAIL_ENCRYPTION = "ssl"
+  MAIL_HOST = "smtp.zoho.com"
+  MAIL_PORT = "465"
+  MAIL_USERNAME = "dream.appbuilders@zohomail.com"
+
+
+[experimental]
+  allowed_public_ports = []
+  auto_rollback = true
+
+[[services]]
+  http_checks = []
+  internal_port = 8080
+  processes = ["app"]
+  protocol = "tcp"
+  script_checks = []
+  [services.concurrency]
+    hard_limit = 25
+    soft_limit = 20
+    type = "connections"
+
+  [[services.ports]]
+    force_https = true
+    handlers = ["http"]
+    port = 80
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
+
+  [[services.tcp_checks]]
+    grace_period = "1s"
+    interval = "15s"
+    restart_limit = 0
+    timeout = "2s"
