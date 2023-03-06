@@ -1,4 +1,6 @@
-app = "Laravel"
+# fly.toml file generated for yesucms2023 on 2023-03-04T15:12:55+08:00
+
+app = "yesucms2023"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
@@ -9,17 +11,16 @@ processes = []
     PHP_VERSION = "8.1"
 
 [env]
-  APP_DEBUG = "true"
+   APP_DEBUG = "true"
   APP_ENV = "production"
   APP_KEY = "base64:Ajii/MioM5t+uSCRdousxib0Xu0NLthVlr6QyXImsb0 = "
-  APP_NAME = "Laravel"
+  APP_NAME = "yesucms2023"
   APP_URL = "http://localhost"
   DB_CONNECTION = "pgsql"
-  DB_DATABASE = "railway"
-  DB_HOST = "containers-us-west-113.railway.app"
-  DB_PORT = "5925"
+  DB_DATABASE = "postgres"
+  DB_HOST = "laravelpostgres-db.internal"
+  DB_PORT = "5432"
   DB_USERNAME = "postgres"
-  DB_PASSWORD = "I2cvZlTP87xJOLbkQt55"
   LOG_CHANNEL = "stderr"
   LOG_DEPRECATIONS_CHANNEL = "null"
   LOG_LEVEL = "info"
@@ -30,9 +31,7 @@ processes = []
   MAIL_PORT = "465"
   MAIL_USERNAME = "dream.appbuilders@zohomail.com"
 
-
 [experimental]
-  allowed_public_ports = []
   auto_rollback = true
 
 [[services]]
