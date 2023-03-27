@@ -27,7 +27,7 @@ return new class extends Migration
         });
 
         DB::table('menus')->insert(
-            ['container_classes' => 'container',  'title' => 'test', 'content' => '[ { "name": "Home",
+            ['container_classes' => 'container',  'title' => 'test', 'image' => 'rkklbjz2s5epojb9pwca', 'content' => '[ { "name": "Home",
                 "link": ""
                 },
                 { "name": "About",

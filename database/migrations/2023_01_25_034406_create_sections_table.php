@@ -31,6 +31,49 @@ return new class extends Migration
         DB::table('sections')->insert(
             ['component_name' => 'CenteredLogoNavBar',  'title' => 'CenteredLogoNavBar', 'page_id' => 1]
         );
+        DB::table('sections')->insert(
+            ['component_name' => 'slider',  'title' => 'slider', 'page_id' => 1, 'content' => '[
+                {
+                    "class": null,
+                    "title": "1",
+                    "title-style-class": null,
+                    "description": null,
+                    "descStyleClass": null,
+                    "imgUrl": "https:\/\/images.pexels.com\/photos\/325185\/pexels-photo-325185.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                    "imgClass": null
+                },
+                {
+                    "class": null,
+                    "title": "2",
+                    "title-style-class": null,
+                    "description": null,
+                    "descStyleClass": null,
+                    "imgUrl": "https:\/\/images.pexels.com\/photos\/919606\/pexels-photo-919606.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                    "imgClass": null
+                },
+                {
+                    "class": null,
+                    "title": "3",
+                    "title-style-class": null,
+                    "description": null,
+                    "descStyleClass": null,
+                    "imgUrl": "https:\/\/images.pexels.com\/photos\/2835436\/pexels-photo-2835436.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                    "imgClass": null
+                },
+                {
+                    "class": null,
+                    "title": "4",
+                    "title-style-class": null,
+                    "description": null,
+                    "descStyleClass": null,
+                    "imgUrl": "https:\/\/images.pexels.com\/photos\/571169\/pexels-photo-571169.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                    "imgClass": null
+                }
+            ]']
+        );
+        DB::table('sections')->insert(
+            ['component_name' => 'twoColumn',  'title' => 'twoColumntest', 'page_id' => 1]
+        );
     }
 
     /**
