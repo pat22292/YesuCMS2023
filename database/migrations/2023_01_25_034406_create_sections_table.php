@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('image_style_class')->nullable();
             $table->longText('content')->nullable();
+            $table->longText('library_settings')->nullable();
             $table->integer('page_id');
             $table->timestamps();
         });
@@ -32,7 +33,12 @@ return new class extends Migration
             ['component_name' => 'CenteredLogoNavBar',  'title' => 'CenteredLogoNavBar', 'page_id' => 1]
         );
         DB::table('sections')->insert(
-            ['component_name' => 'slider',  'title' => 'slider', 'page_id' => 1, 'content' => '[
+            ['component_name' => 'slider', 'component_styles' => 'md:min-h-screen h-96',  'title' => 'slider', 'page_id' => 1,    "library_settings" => '[
+                {
+                    "className": "w-full",
+                    "effect": "coverflow"
+                }
+            ]', 'content' => '[
                 {
                     "class": null,
                     "title": "1",
@@ -72,7 +78,115 @@ return new class extends Migration
             ]']
         );
         DB::table('sections')->insert(
-            ['component_name' => 'twoColumn',  'title' => 'twoColumntest', 'page_id' => 1]
+            ['component_name' => 'twoColumn',  'title' => 'twoColumntest', 'page_id' => 1, 'content' => '    [
+                {
+                    "component_name": "slider",
+                    "component_styles": "h-96",
+                    "title": "slider-1",
+                    "title_style_class": null,
+                    "description": null,
+                    "description_style": null,
+                    "image": null,
+                    "image_style_class": "fade",
+                    "library_settings": [
+                        {
+                            "className": "w-1/2",
+                            "effect": "fade"
+                        }
+                    ],
+                    "content": [
+                        {
+                            "class": null,
+                            "title": "1",
+                            "title-style-class": null,
+                            "description": null,
+                            "descStyleClass": null,
+                            "imgUrl": "https:\/\/images.pexels.com\/photos\/325185\/pexels-photo-325185.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                            "imgClass": null
+                        },
+                        {
+                            "class": null,
+                            "title": "2",
+                            "title-style-class": null,
+                            "description": null,
+                            "descStyleClass": null,
+                            "imgUrl": "https:\/\/images.pexels.com\/photos\/919606\/pexels-photo-919606.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                            "imgClass": null
+                        },
+                        {
+                            "class": null,
+                            "title": "3",
+                            "title-style-class": null,
+                            "description": null,
+                            "descStyleClass": null,
+                            "imgUrl": "https:\/\/images.pexels.com\/photos\/2835436\/pexels-photo-2835436.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                            "imgClass": null
+                        },
+                        {
+                            "class": null,
+                            "title": "4",
+                            "title-style-class": null,
+                            "description": null,
+                            "descStyleClass": null,
+                            "imgUrl": "https:\/\/images.pexels.com\/photos\/571169\/pexels-photo-571169.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                            "imgClass": null
+                        }
+                    ]
+                },
+                {
+                    "component_name": "slider",
+                    "component_styles": "h-96",
+                    "title": "slider-2",
+                    "title_style_class": null,
+                    "description": null,
+                    "description_style": null,
+                    "image": null,
+                    "image_style_class": "fade",
+                    "library_settings": [
+                        {
+                            "className": "w-3/4"
+                        }
+                    ],
+                    "content": [
+                        {
+                            "class": null,
+                            "title": "1",
+                            "title-style-class": null,
+                            "description": null,
+                            "descStyleClass": null,
+                            "imgUrl": "https:\/\/images.pexels.com\/photos\/325185\/pexels-photo-325185.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                            "imgClass": null
+                        },
+                        {
+                            "class": null,
+                            "title": "2",
+                            "title-style-class": null,
+                            "description": null,
+                            "descStyleClass": null,
+                            "imgUrl": "https:\/\/images.pexels.com\/photos\/919606\/pexels-photo-919606.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                            "imgClass": null
+                        },
+                        {
+                            "class": null,
+                            "title": "3",
+                            "title-style-class": null,
+                            "description": null,
+                            "descStyleClass": null,
+                            "imgUrl": "https:\/\/images.pexels.com\/photos\/2835436\/pexels-photo-2835436.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                            "imgClass": null
+                        },
+                        {
+                            "class": null,
+                            "title": "4",
+                            "title-style-class": null,
+                            "description": null,
+                            "descStyleClass": null,
+                            "imgUrl": "https:\/\/images.pexels.com\/photos\/571169\/pexels-photo-571169.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                            "imgClass": null
+                        }
+                    ]
+                }
+            ]']
         );
     }
 

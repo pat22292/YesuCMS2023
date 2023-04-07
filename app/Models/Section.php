@@ -9,6 +9,8 @@ class Section extends Model
 {
     use HasFactory;
     protected $casts = [
-        'content' => 'object'
+        'content' => 'object',
+        'library_settings' => 'object'
+
     ];
 }
