@@ -13,4 +13,12 @@ class Section extends Model
         'library_settings' => 'object'
 
     ];
+ 
+    protected function body(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => json_decode($value, true),
+            set: fn ($value) => json_encode($value),
+        );
+    } 
 }
