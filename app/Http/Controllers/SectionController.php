@@ -23,7 +23,7 @@ class SectionController extends Controller
         $section->desc_style_class = $request['desc_style_class'];
         $section->image = $request['image'];
         $section->image_style_class = $request['image_style_class'];
-        $section->content = $request['content'];
+        $section->content = json_decode($request['content'], true);
         $section->library_settings = $request['library_settings'];
         $section->page_id = 1;
         $section->save();
