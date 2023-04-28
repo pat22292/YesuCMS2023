@@ -23,7 +23,7 @@ return new class extends Migration
             $table->longText('desc_style_class')->nullable();
             $table->string('image')->nullable();
             $table->string('image_style_class')->nullable();
-            $table->longText('content')->nullable();
+            $table->json('content')->nullable();
             $table->longText('library_settings')->nullable();
             $table->integer('page_id');
             $table->timestamps();
@@ -78,7 +78,7 @@ return new class extends Migration
             ]']
         );
         DB::table('sections')->insert(
-            ['component_name' => 'twoColumn',  'title' => 'twoColumntest', 'page_id' => 1, 'content' => '    [
+            ['component_name' => 'twoColumn',  'title' => 'twoColumntest', 'page_id' => 1, 'content' => '  [
                 {
                     "component_name": "slider",
                     "component_styles": "h-96",
