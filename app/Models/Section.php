@@ -11,6 +11,5 @@ class Section extends Model
     protected $casts = [
         'content' => 'object',
         'library_settings' => 'object'
-
     ];
 }

@@ -24,7 +24,7 @@ class SectionController extends Controller
         $section->image = $request['image'];
         $section->image_style_class = $request['image_style_class'];
         $section->content = json_decode($request['content'], true);
-        $section->library_settings = $request['library_settings'];
+        $section->library_settings = json_decode($request['library_settings'], true);
         $section->page_id = 1;
         $section->save();
         return $section;

@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('image_style_class')->nullable();
             $table->json('content')->nullable();
-            $table->longText('library_settings')->nullable();
+            $table->json('library_settings')->nullable();
             $table->integer('page_id');
             $table->timestamps();
         });
